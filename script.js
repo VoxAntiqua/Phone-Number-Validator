@@ -4,9 +4,17 @@ const clearBtn = document.getElementById("clear-btn");
 const resultsDiv = document.getElementById("results-div");
 
 const allNumbers = /[0-9]{10}/;
+const dashes = /(1 )?[0-9]{3}-[0-9]{3}-[0-9]{4}/;
+const parentheses = /1?\([0-9]{3}\)[0-9]{3}-[0-9]{4}/;
+const spaces = /1 [0-9]{3} [0-9]{3} [0-9]{4}/;
+const countryCode = /1 \([0-9]{3}\) [0-9]{3}-[0-9]{4}/;
 
 const validNumbers = [
-    allNumbers
+    allNumbers,
+    dashes,
+    parentheses,
+    spaces,
+    countryCode
 ];
 
 const isValidNumber = (num) => 
