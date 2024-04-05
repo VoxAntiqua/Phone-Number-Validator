@@ -3,8 +3,14 @@ const checkBtn = document.getElementById("check-btn");
 const clearBtn = document.getElementById("clear-btn");
 const resultsDiv = document.getElementById("results-div");
 
-const isValidNumber = (num) => {
-};
+const allNumbers = /[0-9]{10}/;
+
+const validNumbers = [
+    allNumbers
+];
+
+const isValidNumber = (num) => 
+    validNumbers.some((regex) => regex.test(num));
 
 checkBtn.addEventListener("click", () => {
     if (userInput.value === "") {
@@ -12,7 +18,9 @@ checkBtn.addEventListener("click", () => {
         return;
         }
     
-        resultsDiv.textContent = `You entered ${userInput.value}`;
+        resultsDiv.textContent = isValidNumber(userInput.value) 
+            ? "Valid " : "Invalid ";
+        resultsDiv.textContent += `US number: ${userInput.value}`;
     }
 );
 
